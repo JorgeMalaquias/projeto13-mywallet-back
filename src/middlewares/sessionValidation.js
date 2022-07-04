@@ -1,11 +1,12 @@
 import express from "express";
+import db from '../db.js';
 
 export default async function sessionValidation(req, res, next) {
     const { authorization } = req.headers;
     const token = authorization?.replace('Bearer ', '');
     if (!token) return res.sendStatus(401);
     try {
-        const session = await db.collections("sessions").findOne({ token });
+        const session = await db.collection('sessions').findOne({ token: token });
 
         if (!session) {
             return res.sendStatus(401);
@@ -13,9 +14,9 @@ export default async function sessionValidation(req, res, next) {
             res.locals.userId = session.userId;
             next();
         }
-    }catch (error) {
+    } catch (error) {
         return res.status(500).send(error);
     }
-    
+
 }
 
