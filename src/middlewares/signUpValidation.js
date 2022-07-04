@@ -6,13 +6,5 @@ export default function signUpValidation(req, res, next) {
   if (validation.error) {
     return res.sendStatus(422);
   }
-  const user = db.collection('users').findOne({name:req.body.name});
-  if(user){
-    return res.sendStatus(409);
-  }
-  const user2 = db.collection('users').findOne({email:req.body.email});
-  if(user2){
-    return res.sendStatus(409);
-  }
   next();
 }
