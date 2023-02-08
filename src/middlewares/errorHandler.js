@@ -1,5 +1,3 @@
-import { NextFunction, Request, Response } from 'express';
-
 export function errorHandlerMiddleware(err, req, res, next) {
     console.log(err);
     if (err.type) {
