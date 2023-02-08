@@ -1,7 +1,5 @@
-import express from "express";
 import dayjs from "dayjs";
-import { ObjectId } from "mongodb";
-import db from '../db.js';
+import db from '../database/db.js';
 
 export async function gettingRecords(req, res) {
     const userId = res.locals.userId;

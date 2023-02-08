@@ -1,9 +1,8 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
-import db from '../db.js';
+import db from '../database/db.js';
 
-export async function signUp(req, res) {
-    console.log('iii')
+export async function register(req, res) {
     const user = req.body;
     const passwordHash = bcrypt.hashSync(user.password, 10);
     try {
@@ -17,7 +16,7 @@ export async function signUp(req, res) {
 
 }
 
-export async function signIn(req, res) {
+export async function logIn(req, res) {
     const { email, password } = req.body;
 
     try {
@@ -44,7 +43,7 @@ export async function signIn(req, res) {
 
 }
 
-export async function loggingOut(req, res) {
+export async function logOut(req, res) {
     const { token } = req.params;
 
     try {
