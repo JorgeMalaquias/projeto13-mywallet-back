@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 import db from '../db.js';
 
 export async function signUp(req, res) {
+    console.log('iii')
     const user = req.body;
     const passwordHash = bcrypt.hashSync(user.password, 10);
     try {
@@ -48,7 +49,7 @@ export async function loggingOut(req, res) {
 
     try {
 
-        await db.collection('sessions').deleteOne({ token:token})
+        await db.collection('sessions').deleteOne({ token: token })
 
         res.sendStatus(200)
     } catch (error) {

@@ -1,10 +1,11 @@
 {
-  "name": "oscar-niemeyer",
+  "name": "back",
   "type": "module",
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
     "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js",
     "test": "npx jest -i --colors"
   },
   "keywords": [],
@@ -22,5 +23,8 @@
     "mongodb": "^4.7.0",
     "uuid": "^8.3.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
