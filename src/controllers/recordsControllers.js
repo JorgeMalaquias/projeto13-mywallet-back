@@ -1,29 +1,15 @@
 import dayjs from "dayjs";
 import db from '../database/db.js';
+import recordsService from "../services/recordsService.js";
 
 export async function gettingRecords(req, res) {
     const userId = res.locals.userId;
-    try {
-        const records = await db.collection("records").find({
-            userId: userId
-        }).toArray();
-        res.send(records);
-    } catch (error) {
-        res.status(500).send(error);
-    }
+    const records = await recordsService.getRecords(userId);
+    res.send(records);
 }
+
 export async function newRecord(req, res) {
     const userId = res.locals.userId;
-    try {
-        await db.collection("records").insertOne({
-            price: req.body.price,
-            name: req.body.name,
-            type: req.body.type,
-            date: dayjs().format('DD/MM'),
-            userId: userId
-        })
-        res.send('ok');
-    } catch (error) {
-        res.status(500).send(error);
-    }
+    await recordsService.createRecord(userId, req.body);
+    res.sendStatus(201);
 }
