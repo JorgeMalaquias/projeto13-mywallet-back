@@ -27,12 +27,7 @@ async function logIn({ email, password }) {
 
         return token;
     }
-    throw ({ type: 'unauthorized', message: 'Credentials invalid' })
-
-
-
-
-
+    throw ({ type: 'unauthorized', message: 'Invalid Credentials' });
 }
 
 async function logOut(token) {
