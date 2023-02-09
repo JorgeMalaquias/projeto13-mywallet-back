@@ -15,7 +15,7 @@ export async function logIn(req, res) {
 }
 
 export async function logOut(req, res) {
-    const { token } = req.params;
-    await authService.logOut(token);
+    const userId = res.locals.userId;
+    await authService.logOut(userId);
     res.sendStatus(204);
 }

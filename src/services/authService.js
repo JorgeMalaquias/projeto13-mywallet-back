@@ -1,37 +1,34 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import db from '../database/db.js';
+import authRepository from '../repositories/authRepository.js';
 
 
 async function register(user) {
-
     const passwordHash = bcrypt.hashSync(user.password, 10);
-    await db.collection('users').insertOne({ ...user, password: passwordHash })
-
+    await authRepository.create({ ...user, password: passwordHash });
 }
 
 async function logIn({ email, password }) {
-
-    const user = await db.collection('users').findOne({ email });
+    const user = await authRepository.findOneByEmail(email);
 
     if (user && bcrypt.compareSync(password, user.password)) {
 
-        const session = await db.collection('sessions').findOne({ userId: user._id });
-
+        const session = await authRepository.findSessionByUserId(user._id);
         if (session) {
-            await db.collection('sessions').deleteOne({ userId: user._id });
+            await authRepository.deleteSessionByUserId(user._id);
         }
         const token = uuid();
 
-        await db.collection('sessions').insertOne({ token, userId: user._id });
+        await authRepository.createSession(token, user._id);
 
         return token;
     }
     throw ({ type: 'unauthorized', message: 'Invalid Credentials' });
 }
 
-async function logOut(token) {
-    await db.collection('sessions').deleteOne({ token: token })
+async function logOut(userId) {
+    await authRepository.deleteSessionByUserId(userId);
 }
 
 const authService = {
