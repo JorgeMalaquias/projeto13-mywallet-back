@@ -35,9 +35,14 @@ async function logIn({ email, password }) {
 
 }
 
+async function logOut(token) {
+    await db.collection('sessions').deleteOne({ token: token })
+}
+
 const authService = {
     register,
-    logIn
+    logIn,
+    logOut
 };
 
 export default authService;

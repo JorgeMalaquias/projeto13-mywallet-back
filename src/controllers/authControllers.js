@@ -16,13 +16,6 @@ export async function logIn(req, res) {
 
 export async function logOut(req, res) {
     const { token } = req.params;
-
-    try {
-
-        await db.collection('sessions').deleteOne({ token: token })
-
-        res.sendStatus(200)
-    } catch (error) {
-        res.status(500).send(error)
-    }
+    await authService.logOut(token);
+    res.sendStatus(204);
 }
