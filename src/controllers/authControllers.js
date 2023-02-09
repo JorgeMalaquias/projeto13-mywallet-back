@@ -10,8 +10,8 @@ export async function register(req, res) {
 }
 
 export async function logIn(req, res) {
-    const token = await authService.logIn(req.body);
-    res.send(token);
+    const user = await authService.logIn(req.body);
+    res.send(user);
 }
 
 export async function logOut(req, res) {

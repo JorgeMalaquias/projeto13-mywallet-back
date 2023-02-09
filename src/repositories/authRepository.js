@@ -1,8 +1,8 @@
 import db from '../database/db.js';
 
 
-async function create(userData) {
-    await db.collection('users').insertOne(userData);
+async function create({ name, email, password }) {
+    await db.collection('users').insertOne({ name, email, password });
 }
 async function findOneByEmail(email) {
     const user = await db.collection('users').findOne({ email });

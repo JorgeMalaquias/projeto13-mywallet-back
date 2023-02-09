@@ -21,8 +21,7 @@ async function logIn({ email, password }) {
         const token = uuid();
 
         await authRepository.createSession(token, user._id);
-
-        return token;
+        return { token, name: user.name };
     }
     throw ({ type: 'unauthorized', message: 'Invalid Credentials' });
 }
