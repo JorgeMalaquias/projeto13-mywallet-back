@@ -5,6 +5,10 @@ import authRepository from '../repositories/authRepository.js';
 
 
 async function register(user) {
+    const isThereAUser = await authRepository.findOneByEmail(user.email);
+    if (isThereAUser !== null) {
+        throw ({ type: 'conflict', message: 'The informed email is already been used!' });
+    }
     const passwordHash = bcrypt.hashSync(user.password, 10);
     await authRepository.create({ ...user, password: passwordHash });
 }
