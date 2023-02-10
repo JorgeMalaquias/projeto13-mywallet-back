@@ -10,10 +10,15 @@ async function getRecords(userId) {
 }
 
 export async function createRecord(userId, record) {
-    await recordsRepository.createRecord(userId, {
+    const recordRepository = {
         ...record,
-        date: dayjs().format('DD/MM')
-    });
+        date: dayjs().format('DD/MM'),
+        price: Number(record.price)
+    }
+    if (recordRepository.type === 'output') {
+        recordRepository.price *= -1;
+    }
+    await recordsRepository.createRecord(userId, recordRepository);
 }
 
 const recordsService = {
