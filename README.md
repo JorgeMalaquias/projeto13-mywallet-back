@@ -37,3 +37,13 @@ npm i
 ```bash
 npm start   
 ```
+
+## Como rodar localmente em sua máquina em desenvolvimento
+
+1. Realizar os passos 1 ao 3 descrito em "Como rodar localmente em sua máquina".
+
+2. Com um  terminal aberto na pasta do projeto, rodar o comando: 
+
+```bash
+npm run dev   
+```
