@@ -12,3 +12,14 @@ API Restful de suporte da aplicação [MyWallet](https://github.com/JorgeMalaqui
 
    **É necessário ter Node JS instalado globalmente!!!**
    
+1. Com um  terminal aberto na pasta do projeto, rodar o comando: 
+
+```bash
+npm i   
+```
+
+2. Com um  terminal aberto na pasta do projeto, rodar o comando: 
+
+```bash
+npm start   
+```
