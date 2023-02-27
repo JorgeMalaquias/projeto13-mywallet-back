@@ -51,13 +51,13 @@ npm run dev
 
 ### POST `/sign-up`
 
-É o endpoint responsável pelos cadastros de novos usuários.
+É o endpoint responsável pelos cadastros de novos usuários. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
 
-| Body |valueType|
-|------|-----|
-|name|string|
-|email|string e email|
-|password|string|
+`name`: uma string composta por letras apenas;
+`email`:uma string em formato de email válido;
+`password`: uma string qualquer.
+
+exemplo:
 
 ```json
 {
