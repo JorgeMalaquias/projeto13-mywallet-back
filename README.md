@@ -53,8 +53,8 @@ npm run dev
 
 É o endpoint responsável pelos cadastros de novos usuários. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
 
-`name`: uma string composta por letras apenas;
-`email`:uma string em formato de email válido;
+`name`: uma string composta por letras apenas;  
+`email`:uma string em formato de email válido;  
 `password`: uma string qualquer.
 
 exemplo:
