@@ -21,7 +21,7 @@ mongod --dbpath ~/.mongo
 2. Criar um arquivo .env, com variáveis de ambiente baseadas no arquivo .env.example, e atribuir o seguinte endereço à variavél _MONGO_URI_:
 
 ```json
-mongodb://localhost:27017
+"mongodb://localhost:27017"
 ```
 
 Esse endereço só funcionará se estiver sendo usado o mongoDB localmente. Caso, por exemplo, esteja sendo usado o banco de dados atráves do mongo atlas, utilizar o endereço fornecido lá.
