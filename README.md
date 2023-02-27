@@ -53,11 +53,11 @@ npm run dev
 
 É o endpoint responsável pelos cadastros de novos usuários.
 
-| Body ||valueType|
-|------||-----|
-|name||string|
+| Body |valueType|
+|------|-----|
+|name|string|
 |email|string e email|
-|password||string|
+|password|string|
 
 ```json
 {
