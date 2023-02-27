@@ -10,7 +10,7 @@ API Restful de suporte da aplicação [MyWallet](https://github.com/JorgeMalaqui
 
 ## Como rodar localmente em sua máquina
 
-   **OBS:É necessário ter Node JS instalado globalmente!!!**
+   **OBS:É necessário ter Node JS e mongoDB instalados globalmente!!!**
    
 1. Com um  terminal aberto na pasta do projeto, rodar o comando: 
 
