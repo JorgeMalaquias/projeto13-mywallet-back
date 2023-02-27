@@ -47,3 +47,26 @@ npm start
 ```bash
 npm run dev   
 ```
+## Endpoints da api
+
+### POST `/sign-up`
+
+É o endpoint responsável pelos cadastros de novos usuários.
+
+| Body ||valueType|
+|------||-----|
+|name||string|
+|email|string e email|
+|password||string|
+
+```json
+{
+  "name": "Jefferson da Silva",
+  "email": "jeffersonsilva@email.com",
+  "password": "adedanha"
+}
+```
+
+### GET `/records`
+
+### POST `/records`
