@@ -67,6 +67,8 @@ exemplo:
 }
 ```
 
+O `email` informado não pode pertencer há uma usuário previamente cadastrado.
+
 ### POST `/sign-in`
 
 É o endpoint responsável pelo login de usuários já cadastrados. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
@@ -82,6 +84,8 @@ exemplo:
   "password": "adedanha"
 }
 ```
+
+O `email` informado deve pertencer há uma usuário previamente cadastrado, e `password` deve ser idêntica a senha cadastrada do usuário em questão.
 
 ### GET `/records`
 
