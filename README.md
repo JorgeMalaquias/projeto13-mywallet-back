@@ -67,6 +67,22 @@ exemplo:
 }
 ```
 
+### POST `/sign-in`
+
+É o endpoint responsável pelo login de usuários já cadastrados. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
+
+`email`:uma string em formato de email válido;  
+`password`: uma string qualquer.
+
+exemplo:
+
+```json
+{
+  "email": "jeffersonsilva@email.com",
+  "password": "adedanha"
+}
+```
+
 ### GET `/records`
 
 ### POST `/records`
