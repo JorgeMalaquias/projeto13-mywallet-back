@@ -71,16 +71,16 @@ O `email` informado não pode pertencer há uma usuário previamente cadastrado.
 
 Possíveis retornos da api:
 
-**StatusCode**:201
-**Dados**:
+**StatusCode**:201  
+**Dados**:  
 **Descrição**:Foi feito com sucesso o cadastro do usuário com dados informados na requisição
 
-**StatusCode**:409
-**Dados**:'The informed email is already been used!'
+**StatusCode**:409  
+**Dados**:'The informed email is already been used!'  
 **Descrição**:O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição
 
-**StatusCode**:422
-**Dados**:
+**StatusCode**:422  
+**Dados**:  
 **Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
 
 ### POST `/sign-in`
@@ -105,7 +105,7 @@ O `email` informado deve pertencer há uma usuário previamente cadastrado, e `p
 Possíveis retornos da api:
 
 
-**StatusCode**:200
+**StatusCode**:200  
 **Dados**:
 ```json
 {
@@ -115,12 +115,12 @@ Possíveis retornos da api:
 ```
 **Descrição**:Foi feito com sucesso o login do usuário com dados informados na requisição. São retornados dados do usuário. Conforme o exemplo logo acima.
 
-**StatusCode**:422
-**Dados**:
+**StatusCode**:422  
+**Dados**:  
 **Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
 
-**StatusCode**:401
-**Dados**:'Invalid Credentials'
+**StatusCode**:401  
+**Dados**:'Invalid Credentials'  
 **Descrição**: Os dados informados não são válidos. Ou a senha é incorreta, ou até mesmo o email não foi cadastrado previamente.
 
 
