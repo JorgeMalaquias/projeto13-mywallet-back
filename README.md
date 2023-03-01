@@ -99,7 +99,6 @@ exemplo:
 }
 ```
 
-
 O `email` informado deve pertencer há uma usuário previamente cadastrado, e `password` deve ser idêntica a senha cadastrada do usuário em questão.
 
 Possíveis retornos da api:
@@ -128,7 +127,7 @@ Possíveis retornos da api:
 É o endpoint responsável por encerrar uma sessão de um usuário. Necessita do token do usuário sendo informado via headers em formato, conforme exemplo abaixo:
 
 ```json
-headers: {
+"headers": {
             "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
         }
 ```
@@ -150,7 +149,7 @@ Possíveis retornos da api:
 É o endpoint responsável por listar todos os registros de despesas e receitas de um usuário. Esse usuário será identificado de acordo com token informado via headers, comforme exemplo a seguir:
 
 ```json
-headers: {
+"headers": {
             "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
         }
 ```
@@ -160,6 +159,91 @@ Possíveis retornos da api:
 
 **StatusCode**: 200
 **Dados**:
+```json
+[
+  {
+    "_id": "63fea5cf21a2fb4f5aefc2cf",
+    "price": 500,
+    "name": "payment",
+    "type": "input",
+    "date": "28/02",
+    "userId": "63fea25321a2fb4f5aefc2cb"
+  },
+  {
+    "_id": "63fea5da21a2fb4f5aefc2d0",
+    "price": 600,
+    "name": "another payment",
+    "type": "input",
+    "date": "28/02",
+    "userId": "63fea25321a2fb4f5aefc2cb"
+  },
+  {
+    "_id": "63fea5db21a2fb4f5aefc2d1",
+    "price": 600,
+    "name": "another payment",
+    "type": "input",
+    "date": "28/02",
+    "userId": "63fea25321a2fb4f5aefc2cb"
+  },
+  {
+    "_id": "63fea5db21a2fb4f5aefc2d2",
+    "price": 600,
+    "name": "another payment",
+    "type": "input",
+    "date": "28/02",
+    "userId": "63fea25321a2fb4f5aefc2cb"
+  },
+  {
+    "_id": "63fea5dc21a2fb4f5aefc2d3",
+    "price": 600,
+    "name": "another payment",
+    "type": "input",
+    "date": "28/02",
+    "userId": "63fea25321a2fb4f5aefc2cb"
+  }
+]
+```
 **Descrição**: Será retornado um array com os registros do usuário no formato do exemplo acima. Caso o usuário não possua registros, será retornado um array vazio.
 
+
+**StatusCode**: 401  
+**Dados**: 'Invalid Credentials'  
+**Descrição**: O token informado é inválido.
+
 ### POST `/records`
+É o endpoint responsável pela criação de um novo registro, seja despesa ou receita. Só é possível a criação, com autenticação de usuário sendo informado o token da sessão corrente deste usuário via headers, conforme exemplo:
+
+```json
+"headers": {
+            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+        }
+```
+Também deve ser informado no corpo da requisição os seguintes parâmetros:
+`price`: um número, podendo ser não inteiro;
+`name`: uma string qualquer;
+`type`: precisa ser 'input' ou 'output'.
+
+exemplo:
+```json
+{
+  "price": 600,
+  "name": "another payment",
+  "type": "input"
+}
+```
+
+Possíveis retornos da api:
+
+
+**StatusCode**: 201
+**Dados**:
+**Descrição**: O registro foi criado com sucesso.
+
+
+**StatusCode**: 401  
+**Dados**: 'Invalid Credentials'  
+**Descrição**: O token informado é inválido.
+
+**StatusCode**: 422  
+**Dados**:  
+**Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
