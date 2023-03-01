@@ -71,15 +71,15 @@ O `email` informado não pode pertencer há uma usuário previamente cadastrado.
 
 Possíveis retornos da api:
 
-**StatusCode**:201  
+**StatusCode**: 201  
 **Dados**:  
-**Descrição**:Foi feito com sucesso o cadastro do usuário com dados informados na requisição
+**Descrição**: Foi feito com sucesso o cadastro do usuário com dados informados na requisição
 
-**StatusCode**:409  
-**Dados**:'The informed email is already been used!'  
-**Descrição**:O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição
+**StatusCode**: 409  
+**Dados**: 'The informed email is already been used!'  
+**Descrição**: O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição
 
-**StatusCode**:422  
+**StatusCode**: 422  
 **Dados**:  
 **Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
 
@@ -105,7 +105,7 @@ O `email` informado deve pertencer há uma usuário previamente cadastrado, e `p
 Possíveis retornos da api:
 
 
-**StatusCode**:200  
+**StatusCode**: 200  
 **Dados**:
 ```json
 {
@@ -113,17 +113,53 @@ Possíveis retornos da api:
   "name": "Jefferson da Silva"
 }
 ```
-**Descrição**:Foi feito com sucesso o login do usuário com dados informados na requisição. São retornados dados do usuário. Conforme o exemplo logo acima.
+**Descrição**: Foi feito com sucesso o login do usuário com dados informados na requisição. São retornados dados do usuário. Conforme o exemplo logo acima.
 
-**StatusCode**:422  
+**StatusCode**: 422  
 **Dados**:  
 **Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
 
-**StatusCode**:401  
-**Dados**:'Invalid Credentials'  
+**StatusCode**: 401  
+**Dados**: 'Invalid Credentials'  
 **Descrição**: Os dados informados não são válidos. Ou a senha é incorreta, ou até mesmo o email não foi cadastrado previamente.
 
+### DELETE `/log-out`
+
+É o endpoint responsável por encerrar uma sessão de um usuário. Necessita do token do usuário sendo informado via headers em formato, conforme exemplo abaixo:
+
+```json
+headers: {
+            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+        }
+```
+
+O `token` informado deve ser o mesmo que foi gerado e retornado pela api no endpoint `POST '/sign-in'`.
+
+Possíveis retornos da api:
+
+
+**StatusCode**: 204
+**Dados**:
+**Descrição**: A atual sessão do usuário em questão foi encerrada com sucesso.
+
+**StatusCode**: 401  
+**Dados**: 'Invalid Credentials'  
+**Descrição**: Os dados informados não são válidos. Ou a senha é incorreta, ou até mesmo o email não foi cadastrado previamente.
 
 ### GET `/records`
+É o endpoint responsável por listar todos os registros de despesas e receitas de um usuário. Esse usuário será identificado de acordo com token informado via headers, comforme exemplo a seguir:
+
+```json
+headers: {
+            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+        }
+```
+
+Possíveis retornos da api:
+
+
+**StatusCode**: 200
+**Dados**:
+**Descrição**: Será retornado um array com os registros do usuário no formato do exemplo acima. Caso o usuário não possua registros, será retornado um array vazio.
 
 ### POST `/records`
