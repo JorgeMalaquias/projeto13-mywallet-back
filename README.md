@@ -69,6 +69,15 @@ exemplo:
 
 O `email` informado não pode pertencer há uma usuário previamente cadastrado.
 
+Possíveis retornos da api:
+
+|StatusCode|Dados|Descrição|
+|---|---|---|
+|201||Foi feito com sucesso o cadastro do usuário com dados informados na requisição|
+|409|'The informed email is already been used!'|O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição|
+|422||Algum dos valores informados no corpo da requisição não é válido|
+
+
 ### POST `/sign-in`
 
 É o endpoint responsável pelo login de usuários já cadastrados. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
@@ -85,7 +94,21 @@ exemplo:
 }
 ```
 
+
 O `email` informado deve pertencer há uma usuário previamente cadastrado, e `password` deve ser idêntica a senha cadastrada do usuário em questão.
+
+Possíveis retornos da api:
+|StatusCode|Dados|Descrição|
+|---|---|---|
+|200|```json
+{
+  "token": "f6f42c49-c27f-4688-bde9-40ae9732bc85",
+  "name": "Jefferson da Silva"
+}
+```|Foi feito com sucesso o login do usuário com dados informados na requisição|
+|409|'The informed email is already been used!'|O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição|
+|422||Algum dos valores informados no corpo da requisição não é válido|
+
 
 ### GET `/records`
 
