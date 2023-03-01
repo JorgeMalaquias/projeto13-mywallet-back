@@ -51,7 +51,7 @@ npm run dev
 
 ### POST `/sign-up`
 
-É o endpoint responsável pelos cadastros de novos usuários. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
+É o endpoint responsável pelos cadastros de novos usuários. Necessita dos seguintes parâmetros enviados no corpo da requisição:
 
 `name`: uma string composta por letras apenas;  
 `email`:uma string em formato de email válido;  
@@ -71,16 +71,21 @@ O `email` informado não pode pertencer há uma usuário previamente cadastrado.
 
 Possíveis retornos da api:
 
-|StatusCode|Dados|Descrição|
-|---|---|---|
-|201||Foi feito com sucesso o cadastro do usuário com dados informados na requisição|
-|409|'The informed email is already been used!'|O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição|
-|422||Algum dos valores informados no corpo da requisição não é válido|
+**StatusCode**:201
+**Dados**:
+**Descrição**:Foi feito com sucesso o cadastro do usuário com dados informados na requisição
 
+**StatusCode**:409
+**Dados**:'The informed email is already been used!'
+**Descrição**:O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição
+
+**StatusCode**:422
+**Dados**:
+**Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
 
 ### POST `/sign-in`
 
-É o endpoint responsável pelo login de usuários já cadastrados. Necesssita dos seguintes parâmetros enviados no corpo da requisição:
+É o endpoint responsável pelo login de usuários já cadastrados. Necessita dos seguintes parâmetros enviados no corpo da requisição:
 
 `email`:uma string em formato de email válido;  
 `password`: uma string qualquer.
@@ -98,14 +103,25 @@ exemplo:
 O `email` informado deve pertencer há uma usuário previamente cadastrado, e `password` deve ser idêntica a senha cadastrada do usuário em questão.
 
 Possíveis retornos da api:
-|StatusCode|Dados|Descrição|
-|---|---|---|
-|200|```json{
+
+
+**StatusCode**:200
+**Dados**:
+```json
+{
   "token": "f6f42c49-c27f-4688-bde9-40ae9732bc85",
   "name": "Jefferson da Silva"
-}```|Foi feito com sucesso o login do usuário com dados informados na requisição|
-|409|'The informed email is already been used!'|O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição|
-|422||Algum dos valores informados no corpo da requisição não é válido|
+}
+```
+**Descrição**:Foi feito com sucesso o login do usuário com dados informados na requisição. São retornados dados do usuário. Conforme o exemplo logo acima.
+
+**StatusCode**:422
+**Dados**:
+**Descrição**: O corpo da requisição não é válido. Podem haver valores inválidos, ou valores obrigatórios que não foram informados.
+
+**StatusCode**:401
+**Dados**:'Invalid Credentials'
+**Descrição**: Os dados informados não são válidos. Ou a senha é incorreta, ou até mesmo o email não foi cadastrado previamente.
 
 
 ### GET `/records`
