@@ -100,12 +100,10 @@ O `email` informado deve pertencer há uma usuário previamente cadastrado, e `p
 Possíveis retornos da api:
 |StatusCode|Dados|Descrição|
 |---|---|---|
-|200|```json
-{
+|200|```json{
   "token": "f6f42c49-c27f-4688-bde9-40ae9732bc85",
   "name": "Jefferson da Silva"
-}
-```|Foi feito com sucesso o login do usuário com dados informados na requisição|
+}```|Foi feito com sucesso o login do usuário com dados informados na requisição|
 |409|'The informed email is already been used!'|O cadastro não foi feito, pois já existe um usuário cadastrado com o email informado na requisição|
 |422||Algum dos valores informados no corpo da requisição não é válido|
 
