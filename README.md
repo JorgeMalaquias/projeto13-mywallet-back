@@ -128,7 +128,7 @@ Possíveis retornos da api:
 
 ```json
 "headers": {
-            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+            "Authorization": "Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85"
         }
 ```
 
@@ -150,7 +150,7 @@ Possíveis retornos da api:
 
 ```json
 "headers": {
-            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+            "Authorization": "Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85"
         }
 ```
 
@@ -215,7 +215,7 @@ Possíveis retornos da api:
 
 ```json
 "headers": {
-            "Authorization": `Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85`
+            "Authorization": "Bearer f6f42c49-c27f-4688-bde9-40ae9732bc85"
         }
 ```
 Também deve ser informado no corpo da requisição os seguintes parâmetros:
