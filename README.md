@@ -4,9 +4,9 @@ API Restful de suporte da aplicação [MyWallet](https://github.com/JorgeMalaqui
 É responsável pelo cadastro, gerenciamento e listagem de informações sobre usuários, seus dados, e suas movimentações financeiras!
 
 ## Tecnologias empregadas
-![Javascript]
-![Node JS]
-![Express JS]
+- Javascript
+- Node JS
+- Express JS
 
 ## Como rodar localmente em sua máquina
 
