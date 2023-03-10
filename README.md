@@ -251,8 +251,12 @@ npm start
 npm run dev   
 ```
 
-# Créditos do código
+# Créditos
 
-Jorge Jociel Oliveira Malaquia
-
+Desenvolvimento de código:  
+- Jorge Jociel Olivera Malaquia  
 Linkedin: https://www.linkedin.com/in/jorgemalaquiasdev/
+
+Concepção da aplicação:
+- Driven Education  
+Linkedin: https://www.linkedin.com/school/driven-education/
